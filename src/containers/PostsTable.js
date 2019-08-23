@@ -13,14 +13,22 @@ const PostTable = ({posts}) => (
       <th>Number of comments</th>
     </tr>
     {
-      posts.map(({id, title, body, userName, commentsCount}) => (
-        <tr key={id}>
-          <td>{title}</td>
-          <td>{body}</td>
-          <td>{userName}</td>
-          <td style={{ textAlign: 'center' }}>{commentsCount}</td>
-        </tr>
-      ))
+      posts.length
+        ? posts.map(({id, title, body, userName, commentsCount}) => (
+            <tr key={id}>
+              <td>{title}</td>
+              <td>{body}</td>
+              <td>{userName}</td>
+              <td style={{ textAlign: 'center' }}>{commentsCount}</td>
+            </tr>
+        )) : (
+          <tr>
+            <td>No data</td>
+            <td>No data</td>
+            <td>No data</td>
+            <td>No data</td>
+          </tr>
+        )
     }
   </table>
 );

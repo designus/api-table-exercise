@@ -16,9 +16,9 @@ const App = ({ status: {loading, error}, fetchData}) => {
       {
         loading
           ? <p>...Loading</p>
-          : !error
-            ? <PostsTable />
-            : <div>{error}</div>
+          : error
+            ? <div>{error}</div>
+            : <PostsTable />
       }
     </div>
   );
