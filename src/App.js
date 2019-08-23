@@ -1,20 +1,39 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchData} from './actions'
+import { createStructuredSelector } from 'reselect';
+import { statusSelector } from './selectors';
+import { fetchData} from './actions';
+import PostsTable from './containers/PostsTable';
 
-const App = ({ data, fetchData}) => {
-
+const App = ({ status: {loading, error}, fetchData}) => {
   useEffect(() => {
     fetchData()
   }, [fetchData])
 
   return (
     <div className="app">
-      Render posts as a table here
+      {
+        loading
+          ? <p>...Loading</p>
+          : !error
+            ? <PostsTable />
+            : <div>{error}</div>
+      }
     </div>
   );
 }
 
-const mapStateToProps = ({data}) => ({data})
+App.propTypes = {
+  status: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    error: PropTypes.string,
+  }).isRequired,
+  fetchData: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = createStructuredSelector({
+  status: statusSelector(),
+})
 
 export default connect(mapStateToProps, { fetchData })(App);

@@ -26,7 +26,7 @@ const dataReducer = (state = initialState, action) => {
     case POSTS.FETCH_FAILED:
       return {
         ...state,
-        error: action.error,
+        error: action.error.message || action.error,
         loading: false
       }
     default:

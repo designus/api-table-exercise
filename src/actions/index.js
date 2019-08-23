@@ -27,9 +27,6 @@ export const fetchData = () => async dispatch => {
           dispatch(fetchSuccessPosts(users, posts, comments))
         )
       }))
-      .catch((error) => {
-        dispatch(fetchFailedPosts(error));
-      })
   } catch (error) {
     dispatch(fetchFailedPosts(error));
   }
