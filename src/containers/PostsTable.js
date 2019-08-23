@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { postsSelector } from '../selectors';
 
-const PostTable = ({posts}) => (
+const PostTable = ({ posts }) => (
   <table>
     <tr>
       <th>Post title</th>

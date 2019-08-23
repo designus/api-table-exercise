@@ -1,3 +1,5 @@
-export const Config = {
-  apiUrl: 'https://jsonplaceholder.typicode.com',
-};
+import Axios from 'axios'
+
+export const http = Axios.create({
+  baseURL: 'https://jsonplaceholder.typicode.com',
+})
