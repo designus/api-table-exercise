@@ -14,7 +14,7 @@ const dataReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
-      };
+      }
     case POSTS.FETCH_SUCCESS:
       return {
         ...state,
@@ -22,7 +22,7 @@ const dataReducer = (state = initialState, action) => {
         users: action.users.data,
         posts: action.posts.data,
         comments: action.comments.data
-      };
+      }
     case POSTS.FETCH_FAILED:
       return {
         ...state,
@@ -30,7 +30,7 @@ const dataReducer = (state = initialState, action) => {
         loading: false
       }
     default:
-      return state;
+      return state
   }
 }
 

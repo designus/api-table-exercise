@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { postsSelector } from '../selectors';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { postsSelector } from '../selectors'
 
 export const PostsTable = ({ posts }) => (
   <table id="postsTable">
@@ -35,16 +35,16 @@ export const PostsTable = ({ posts }) => (
       }
     </tbody>
   </table>
-);
+)
 
 PostsTable.propTypes = {
   posts: PropTypes.instanceOf(Array).isRequired,
-};
+}
 
 const mapStateToProps = createStructuredSelector({
   posts: postsSelector()
-});
+})
 
-export default connect(mapStateToProps)(PostsTable);
+export default connect(mapStateToProps)(PostsTable)
 
 

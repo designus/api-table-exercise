@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
-import { statusSelector } from './selectors';
-import { fetchData} from './actions';
-import PostsTable from './containers/PostsTable';
+import React, { useEffect } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
+import { statusSelector } from './selectors'
+import { fetchData} from './actions'
+import PostsTable from './containers/PostsTable'
 
 export const App = ({ status: {loading, error}, fetchData}) => {
   useEffect(() => {
@@ -21,7 +21,7 @@ export const App = ({ status: {loading, error}, fetchData}) => {
             : <PostsTable />
       }
     </div>
-  );
+  )
 }
 
 App.propTypes = {
@@ -36,4 +36,4 @@ const mapStateToProps = createStructuredSelector({
   status: statusSelector(),
 })
 
-export default connect(mapStateToProps, { fetchData })(App);
+export default connect(mapStateToProps, { fetchData })(App)

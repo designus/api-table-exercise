@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
 
-const dataState = state => state.data;
-const usersState = state => state.data.users;
-const postsState = state => state.data.posts;
-const commentsState = state => state.data.comments;
+const dataState = state => state.data
+const usersState = state => state.data.users
+const postsState = state => state.data.posts
+const commentsState = state => state.data.comments
 
 export const statusSelector = () => createSelector(
   dataState,
