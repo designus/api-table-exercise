@@ -10,11 +10,6 @@ const initialState = {
 
 const dataReducer = (state = initialState, action) => {
   switch (action.type) {
-    case POSTS.LOADING:
-      return {
-        ...state,
-        loading: true,
-      }
     case POSTS.FETCH_SUCCESS:
       return {
         ...state,
