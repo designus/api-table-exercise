@@ -34,7 +34,16 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jasmine-expect": "^4.0.3",
     "prop-types": "^15.7.2",
     "typescript": "^3.5.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ]
   }
 }

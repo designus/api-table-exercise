@@ -6,7 +6,7 @@ import { statusSelector } from './selectors';
 import { fetchData} from './actions';
 import PostsTable from './containers/PostsTable';
 
-const App = ({ status: {loading, error}, fetchData}) => {
+export const App = ({ status: {loading, error}, fetchData}) => {
   useEffect(() => {
     fetchData()
   }, [fetchData])

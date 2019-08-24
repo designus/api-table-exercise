@@ -2,7 +2,7 @@ import Axios from 'axios'
 import { http } from '../config'
 import { POSTS } from './types'
 
-const fetchSuccessPosts = (users, posts, comments) => ({
+export const fetchSuccessPosts = (users, posts, comments) => ({
   type: POSTS.FETCH_SUCCESS,
   users,
   posts,
@@ -10,7 +10,7 @@ const fetchSuccessPosts = (users, posts, comments) => ({
   loading: false,
 })
 
-const fetchFailedPosts = (error) => ({
+export const fetchFailedPosts = (error) => ({
   type: POSTS.FETCH_FAILED,
   error,
   loading: false,
