@@ -1,7 +1,7 @@
 {
   "name": "api-table",
   "version": "0.2.0",
-  "description": " Small aplication that renders a list of Posts with ist username and number of comments fetched form https://jsonplaceholder.typicode.com/ ",
+  "description": "Small application that renders a list of Posts with its username and number of comments fetched form jsonplaceholder.typicode.com",
   "repository": "https://github.com/KaiHotz/api-table-exercise",
   "homepage": "https://KaiHotz.github.io/api-table-exercise",
   "author": "Kai Hotz",
