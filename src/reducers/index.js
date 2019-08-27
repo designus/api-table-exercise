@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux'
-import data from './dataReducer'
+import users from './usersReducer'
+import posts from './postsReducer'
+import comments from './commentsReducer'
 
 const rootReducer = combineReducers({
-  data,
+  users,
+  posts,
+  comments,
 })
 
 export default rootReducer
