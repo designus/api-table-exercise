@@ -1,24 +1,22 @@
-import { POSTS } from '../actions/types'
+import { POSTS, USERS, COMMENTS } from '../actions/types'
 
 const initialState = {
-  loading: true,
-  users: [],
-  posts: [],
-  comments: [],
   error: null,
+  loading: true,
 }
 
-const dataReducer = (state = initialState, action) => {
+const statusReducer = (state = initialState, action) => {
   switch (action.type) {
+    case USERS.FETCH_SUCCESS:
     case POSTS.FETCH_SUCCESS:
+    case COMMENTS.FETCH_SUCCESS:
       return {
         ...state,
         loading: false,
-        users: action.users.data,
-        posts: action.posts.data,
-        comments: action.comments.data
       }
+    case USERS.FETCH_FAILED:
     case POSTS.FETCH_FAILED:
+    case COMMENTS.FETCH_FAILED:
       return {
         ...state,
         error: action.error.message || action.error,
@@ -29,4 +27,4 @@ const dataReducer = (state = initialState, action) => {
   }
 }
 
-export default dataReducer
+export default statusReducer

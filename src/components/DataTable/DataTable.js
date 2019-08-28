@@ -11,8 +11,11 @@ const DataTable = ({data, cols}) => {
       </tr>
     )
 
-  const renderEmptyState = cols =>
-    <td colSpan={cols.length}>No data</td>
+  const renderEmptyState = cols =>(
+    <tr>
+      <td colSpan={cols.length}>No data</td>
+    </tr>
+  )
 
   return (
     <table>
