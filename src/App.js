@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { fetchData } from './actions/data';
 
-function App() {
+function App(props) {
+  const { fetchData, posts, users } = props;
+  useEffect(() => {
+    fetchData();
+  }, [fetchData])
+
+  const renderPost = post => {
+    const user = users.byId[post.userId]
+    return (
+      <tr key={post.id}>
+        <td>{post.title}</td>
+        <td>{post.body}</td>
+        <td>{user && user.username}</td>
+        <td>{post.comments.length}</td>
+      </tr>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className="posts">
+        {posts && (
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Body</th>
+                <th>User name</th>
+                <th>Comments count</th>
+              </tr>
+            </thead>
+            <tbody>
+              {posts.map(renderPost)}
+            </tbody>
+          </table>
+        )}
+      </div>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  posts: state.posts,
+  users: state.users
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchData: () => dispatch(fetchData())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
